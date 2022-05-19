@@ -1,7 +1,7 @@
 github_path="$HOME/.github_ubc"
-GREEN="\033[0;32m"
-RED="\033[0;31m"
-DEFAULT="\033[0m"
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+DEFAULT='\033[0m'
 
 # lists all registered git repositories
 function list_all_github {
