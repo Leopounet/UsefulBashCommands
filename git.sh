@@ -87,7 +87,7 @@ function push_all_github {
 		if [[ ! -d "$line" ]]; then
 			echo "Directory: $line does not exist, can not pull!"
 		else
-			git -C "$line" add *
+			git -C "$line" add "$line/"*
 			git -C "$line" commit -m "Auto-push!"
 			git -C "$line" push
 		fi
