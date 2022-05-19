@@ -1,4 +1,7 @@
 github_path="$HOME/.github_ubc"
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+DEFAULT="\033[0m"
 
 # lists all registered git repositories
 function list_all_github {
@@ -18,18 +21,18 @@ function add_github {
 	fi
 	
 	if [[ ! -d "$path" ]]; then
-		echo "Invalid directory!"
+		echo "${RED}Invalid directory!"
 		return 0
 	fi
 
 	if [[ ! -d "$path/.git" ]]; then
-		echo "Not a github directory!"
+		echo "${RED}Not a github directory!"
 		return 0
 	fi
 
 	while read line; do
 		if [[ "$line" = "$path" ]]; then
-			echo "Already registered!"
+			echo "${RED}Already registered!"
 			return 0;
 		fi
 	done < $github_path
@@ -42,7 +45,7 @@ function remove_github {
 	path=$(realpath "$1")
 
 	if [[ ! -f $github_path ]]; then
-		echo "No directory registered!"
+		echo "${RED}No directory registered!"
 		return 0
 	fi
 	
@@ -53,7 +56,7 @@ function remove_github {
 		if [[ "$line" != "$path" ]]; then
 			echo $line >> $tmp_file
 		else
-			echo "Discarded directory successfully!"
+			echo "${GREEN}Discarded directory successfully!"
 		fi
 	done < $github_path
 
@@ -63,8 +66,13 @@ function remove_github {
 
 # removes by index a registered git repository
 function nremove_github {
-	n=$1
 
+	if [[ ! -f $github_path ]]; then
+		echo "${RED}No directory registered!"
+		return 0
+	fi
+
+	n=$1
 	tmp_file="___tmp_github.txt"
 	touch $tmp_file
 	
@@ -72,7 +80,7 @@ function nremove_github {
 		if [[ "$n" != "0" ]]; then
 			echo $line >> $tmp_file
 		else
-			echo "Discarded directory number $n successfully!"
+			echo "${GREEN}Discarded directory number $n successfully!"
 		fi
 		n=$(($n - 1))
 	done < $github_path
@@ -85,9 +93,9 @@ function nremove_github {
 function push_all_github {
  	while read line; do
 	 	echo "--------------------------------------------------------------------------------"
-	 	echo "Pushing $line ..."
+	 	echo "${GREEN}Pushing $line ..."
 		if [[ ! -d "$line" ]]; then
-			echo "Directory: $line does not exist, can not pull!"
+			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
 			git -C "$line" add "$line/"*
 			git -C "$line" commit -m "Auto-push!"
@@ -95,16 +103,16 @@ function push_all_github {
 		fi
 	done < $github_path
 
-	echo "Done!"
+	echo "${GREEN}Done!"
 }
 
 # pulls all registered git repositories
 function pull_all_github {
 	while read line; do
 		echo "--------------------------------------------------------------------------------"
-	 	echo "Pulling $line ..."
+	 	echo "${GREEN}Pulling $line ..."
 		git -C "$line" pull
 	done < $github_path
 
-	echo "Done!"
+	echo "${GREEN}Done!"
 }
