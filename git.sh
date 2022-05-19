@@ -21,18 +21,18 @@ function add_github {
 	fi
 	
 	if [[ ! -d "$path" ]]; then
-		echo "${RED}Invalid directory!"
+		echo -e "${RED}Invalid directory!${DEFAULT}"
 		return 0
 	fi
 
 	if [[ ! -d "$path/.git" ]]; then
-		echo "${RED}Not a github directory!"
+		echo -e "${RED}Not a github directory!${DEFAULT}"
 		return 0
 	fi
 
 	while read line; do
 		if [[ "$line" = "$path" ]]; then
-			echo "${RED}Already registered!"
+			echo -e "${RED}Already registered!${DEFAULT}"
 			return 0;
 		fi
 	done < $github_path
@@ -45,7 +45,7 @@ function remove_github {
 	path=$(realpath "$1")
 
 	if [[ ! -f $github_path ]]; then
-		echo "${RED}No directory registered!"
+		echo -e "${RED}No directory registered!${DEFAULT}"
 		return 0
 	fi
 	
@@ -56,7 +56,7 @@ function remove_github {
 		if [[ "$line" != "$path" ]]; then
 			echo $line >> $tmp_file
 		else
-			echo "${GREEN}Discarded directory successfully!"
+			echo -e "${GREEN}Discarded directory successfully!${DEFAULT}"
 		fi
 	done < $github_path
 
@@ -68,7 +68,7 @@ function remove_github {
 function nremove_github {
 
 	if [[ ! -f $github_path ]]; then
-		echo "${RED}No directory registered!"
+		echo -e "${RED}No directory registered!${DEFAULT}"
 		return 0
 	fi
 
@@ -80,7 +80,7 @@ function nremove_github {
 		if [[ "$n" != "0" ]]; then
 			echo $line >> $tmp_file
 		else
-			echo "${GREEN}Discarded directory number $n successfully!"
+			echo -e "${GREEN}Discarded directory number $n successfully!${DEFAULT}"
 		fi
 		n=$(($n - 1))
 	done < $github_path
@@ -93,7 +93,7 @@ function nremove_github {
 function push_all_github {
  	while read line; do
 	 	echo "--------------------------------------------------------------------------------"
-	 	echo -e "${GREEN}Pushing $line ..."
+	 	echo -e "${GREEN}Pushing $line ...${DEFAULT}"
 		if [[ ! -d "$line" ]]; then
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
@@ -103,16 +103,16 @@ function push_all_github {
 		fi
 	done < $github_path
 
-	echo "${GREEN}Done!"
+	echo -e "${GREEN}Done!${DEFAULT}"
 }
 
 # pulls all registered git repositories
 function pull_all_github {
 	while read line; do
 		echo "--------------------------------------------------------------------------------"
-	 	echo "${GREEN}Pulling $line ..."
+	 	echo -e "${GREEN}Pulling $line ...${DEFAULT}"
 		git -C "$line" pull
 	done < $github_path
 
-	echo "${GREEN}Done!"
+	echo -e "${GREEN}Done!${DEFAULT}"
 }
