@@ -84,6 +84,8 @@ function nremove_github {
 # pushs all registered git repositories
 function push_all_github {
  	while read line; do
+	 	echo "--------------------------------------------------------------------------------"
+	 	echo "Pushing $line ..."
 		if [[ ! -d "$line" ]]; then
 			echo "Directory: $line does not exist, can not pull!"
 		else
@@ -92,11 +94,17 @@ function push_all_github {
 			git -C "$line" push
 		fi
 	done < $github_path
+
+	echo "Done!"
 }
 
 # pulls all registered git repositories
 function pull_all_github {
 	while read line; do
+		echo "--------------------------------------------------------------------------------"
+	 	echo "Pulling $line ..."
 		git -C "$line" pull
 	done < $github_path
+
+	echo "Done!"
 }
