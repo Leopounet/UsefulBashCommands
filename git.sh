@@ -93,7 +93,7 @@ function nremove_github {
 function push_all_github {
  	while read line; do
 	 	echo "--------------------------------------------------------------------------------"
-	 	echo "${GREEN}Pushing $line ..."
+	 	echo -e "${GREEN}Pushing $line ..."
 		if [[ ! -d "$line" ]]; then
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
