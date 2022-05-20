@@ -59,3 +59,14 @@ function bearm {
     echo ".data" >> "$1"
     echo "string: .asciz \"Example works!\n\"" >> "$1"
 }
+
+function darm {
+    if [[ ! -f "$1" ]]; then
+        echo "File does not exist!"
+        return 0
+    fi
+
+    gnome-terminal -- qemu-arm -L /usr/arm-linux-gnueabihf -g 1234 "$1"
+
+    gdb-multiarch -q --nh -ex "set architecture arm" -ex "set sysroot /usr/arm-linux-gnueabi" -ex "file $1" -ex "target remote localhost:1234" -ex "break _start";
+}
