@@ -1,0 +1,8 @@
+**/.vscode
+**/*.pdf
+**/build_py_tex
+**/_build
+**/*.d.byte
+**/*.o
+**/build
+**/*.mlo
