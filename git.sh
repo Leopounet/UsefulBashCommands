@@ -97,7 +97,7 @@ function push_all_github {
 		if [[ ! -d "$line" ]]; then
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
-			git -C "$line" rm --cached "$line/*"
+			git -C "$line" rm --cached "$line/*" > /dev/null 2>&1
 			git -C "$line" add "$line/*"
 			git -C "$line" add -u
 			if [[ -f "$line/.gitignore" ]]; then
@@ -139,4 +139,14 @@ function gen_gitignore {
 	echo "**/*.o" >> .gitignore
 	echo "**/build" >> .gitignore
 	echo "**/*.mlo" >> .gitignore
+	echo "**/*.mll" >> .gitignore
+	echo ".vscode" >> .gitignore
+	echo "*.pdf" >> .gitignore
+	echo "*.d.byte" >> .gitignore
+	echo "*.o" >> .gitignore
+	echo "build/" >> .gitignore
+	echo "_build/" >> .gitignore
+	echo "*.mll" >> .gitignore
+	echo "*.mlo" >> .gitignore
+	echo "build_py_tex/" >> .gitignore
 }

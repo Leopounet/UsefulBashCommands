@@ -6,3 +6,13 @@
 **/*.o
 **/build
 **/*.mlo
+**/*.mll
+.vscode
+*.pdf
+*.d.byte
+*.o
+build/
+_build/
+*.mll
+*.mlo
+build_py_tex/
