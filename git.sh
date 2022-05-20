@@ -101,7 +101,7 @@ function push_all_github {
 			if [[ -f "$line/.gitignore" ]]; then
 				git -C "$line" add "$line/.gitignore"
 			fi
-			git status
+			git -C "$line" status
 			git -C "$line" commit -m "Auto-push!"
 			git -C "$line" push
 		fi
