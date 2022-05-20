@@ -98,7 +98,9 @@ function push_all_github {
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
 			git -C "$line" add "$line/"*
-			git -C "$line" add .gitignore
+			if [[ -f "$line/.gitignore" ]]; then
+				git -C "$line" add "$line/.gitignore"
+			fi
 			git -C "$line" commit -m "Auto-push!"
 			git -C "$line" push
 		fi
