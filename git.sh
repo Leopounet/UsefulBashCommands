@@ -97,7 +97,7 @@ function push_all_github {
 		if [[ ! -d "$line" ]]; then
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
-			git -C "$line" rm --cached /path/to/file
+			git -C "$line" rm --cached "$line/*"
 			git -C "$line" add "$line/*"
 			git -C "$line" add -u
 			if [[ -f "$line/.gitignore" ]]; then
