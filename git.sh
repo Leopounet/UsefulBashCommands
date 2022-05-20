@@ -98,6 +98,7 @@ function push_all_github {
 			echo "${RED}Directory: $line does not exist, can not pull!"
 		else
 			git -C "$line" add "$line/"*
+			git -C "$line" add .gitignore
 			git -C "$line" commit -m "Auto-push!"
 			git -C "$line" push
 		fi
@@ -115,4 +116,22 @@ function pull_all_github {
 	done < $github_path
 
 	echo -e "${GREEN}Done!${DEFAULT}"
+}
+
+# generates a gitignore file where the command is invoked
+function gen_gitignore {
+	if [[ -f ".gitignore" ]]; then
+		rm .gitignore
+	fi
+
+	touch .gitignore
+
+	echo "**/.vscode" >> .gitignore
+	echo "**/*.pdf" >> .gitignore
+	echo "**/build_py_tex" >> .gitignore
+	echo "**/_build" >> .gitignore
+	echo "**/*.d.byte" >> .gitignore
+	echo "**/*.o" >> .gitignore
+	echo "**/build" >> .gitignore
+	echo "**/*.mlo" >> .gitignore
 }
