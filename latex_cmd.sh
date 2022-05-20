@@ -1,3 +1,4 @@
 function initlatex {
-    cp -r /mnt/c/Users/t.de-castro/VDesktop/BashCommands/__latex/* .
+    SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+    cp -r "$SCRIPT_DIR/__latex/"* .
 }

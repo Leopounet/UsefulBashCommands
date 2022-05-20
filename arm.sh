@@ -48,7 +48,7 @@ function bearm {
     echo -e "\t@ Supervisor call to print (r7 = 4)" >> "$1"
     echo -e "\tmov r0, #1" >> "$1"
     echo -e "\tldr r1, =string" >> "$1"
-    echo -e "\tmov r2, #12" >> "$1"
+    echo -e "\tmov r2, #15" >> "$1"
     echo -e "\tmov r7, #4" >> "$1"
     echo -e "\tsvc #0" >> "$1"
     echo -e "\t@ Supervisor call to print (r7 = 1)" >> "$1"
