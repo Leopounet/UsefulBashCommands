@@ -131,22 +131,36 @@ function gen_gitignore {
 
 	touch .gitignore
 
-	echo "**/.vscode" >> .gitignore
-	echo "**/*.pdf" >> .gitignore
-	echo "**/build_py_tex" >> .gitignore
-	echo "**/_build" >> .gitignore
-	echo "**/*.d.byte" >> .gitignore
-	echo "**/*.o" >> .gitignore
-	echo "**/build" >> .gitignore
-	echo "**/*.mlo" >> .gitignore
-	echo "**/*.mll" >> .gitignore
-	echo ".vscode" >> .gitignore
-	echo "*.pdf" >> .gitignore
-	echo "*.d.byte" >> .gitignore
-	echo "*.o" >> .gitignore
-	echo "build/" >> .gitignore
-	echo "_build/" >> .gitignore
-	echo "*.mll" >> .gitignore
-	echo "*.mlo" >> .gitignore
-	echo "build_py_tex/" >> .gitignore
+	echo "**/.vscode"  >> .gitignore
+	echo "**/*.pdf"  >> .gitignore
+	echo "**/build_py_tex"  >> .gitignore
+	echo "**/_build"  >> .gitignore
+	echo "**/*.d.byte"  >> .gitignore
+	echo "**/*.o"  >> .gitignore
+	echo "**/build"  >> .gitignore
+	echo "**/*.mlo"  >> .gitignore
+	echo "**/*.mll"  >> .gitignore
+	echo "**/*.toc"  >> .gitignore
+	echo "**/*.aux"  >> .gitignore
+	echo "**/*.out"  >> .gitignore
+	echo "**/*.log"  >> .gitignore
+	echo "**/*.nav"  >> .gitignore
+	echo "**/*.snm"  >> .gitignore
+	echo "**/_minted-main"  >> .gitignore
+	echo ".vscode"  >> .gitignore
+	echo "*.pdf"  >> .gitignore
+	echo "*.d.byte"  >> .gitignore
+	echo "*.o"  >> .gitignore
+	echo "build/"  >> .gitignore
+	echo "_build/"  >> .gitignore
+	echo "*.mll"  >> .gitignore
+	echo "*.mlo"  >> .gitignore
+	echo "build_py_tex/"  >> .gitignore
+	echo "toc"  >> .gitignore
+	echo "aux"  >> .gitignore
+	echo "out"  >> .gitignore
+	echo "log"  >> .gitignore
+	echo "nav"  >> .gitignore
+	echo "snm"  >> .gitignore
+	echo "_minted-main"  >> .gitignore
 }
