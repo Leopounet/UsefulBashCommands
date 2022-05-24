@@ -1,0 +1,77 @@
+\documentclass[9pt]{beamer}
+\usetheme{Berlin}
+\usecolortheme{seahorse}
+
+% Couleurs à changer si tu veux
+
+\definecolor{blueUniv}{RGB}{1,174,240}
+% Couleurs Titre de slide
+\setbeamercolor*{palette primary}{bg=cyan!30!, fg = black}
+% Couleurs deuxième barres du haut et bas : séparation en haut et présentateurs en bas
+\setbeamercolor*{palette secondary}{bg=black!60!, fg = white}
+% Couleurs barres tout en haut et tout en bas : progression bar en haut et titre + page en bas
+\setbeamercolor*{palette tertiary}{bg=blueUniv, fg = white}
+
+% Couleurs des blocks
+\setbeamercolor{block title}{use=structure,fg=white,bg=Apricot}
+\setbeamercolor{block body}{use=structure,fg=black,bg=Apricot!30!}
+
+\usepackage[french,english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+\usepackage{bbm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{ marvosym }
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{minted}
+\usepackage{listings}
+
+
+\title{Slides Réunion Hebdomadaire}
+\author{Theo De Castro Pinto}
+\date{\today}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+% Re-montre le sommaire au début de chaque section
+\AtBeginSection[]
+{
+  \begin{frame}[noframenumbering]
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\section{Introduction}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\begin{frame}{Introduction} 
+
+\end{frame}
+
+
+\end{document}
