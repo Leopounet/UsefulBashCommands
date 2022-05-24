@@ -37,7 +37,8 @@ exclude_files = {
     "bib.tex",
     "packages.tex",
     sum_file,
-    spl_file
+    spl_file,
+    "ref.bib"
 }
 
 tex_files = set(glob.glob("*.tex"))
