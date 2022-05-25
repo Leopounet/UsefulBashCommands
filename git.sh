@@ -104,7 +104,11 @@ function push_all_github {
 				git -C "$line" add "$line/.gitignore"
 			fi
 			git -C "$line" status
-			git -C "$line" commit -m "Auto-push!"
+			if [[ -z "$1" ]]; then
+				git -C "$line" commit -m "Auto-push!"
+			else
+				git -C "$line" commit -m "$1"
+			fi
 			git -C "$line" push
 		fi
 	done < $github_path
