@@ -1,3 +1,5 @@
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
+
 function carm {
     if [[ -z "$1" ]]; then
         echo "No first input given!"
@@ -69,4 +71,19 @@ function darm {
     gnome-terminal -- qemu-arm -L /usr/arm-linux-gnueabihf -g 1234 "$1"
 
     gdb-multiarch -q --nh -ex "set architecture arm" -ex "set sysroot /usr/arm-linux-gnueabi" -ex "file $1" -ex "target remote localhost:1234" -ex "break _start";
+}
+
+function darm {
+    if [[ ! -f "$1" ]]; then
+        echo "File does not exist!"
+        return 0
+    fi
+
+    gnome-terminal -- qemu-arm -L /usr/arm-linux-gnueabihf -g 1234 "$1"
+
+    gdb-multiarch -q --nh -ex "set architecture arm" -ex "set sysroot /usr/arm-linux-gnueabi" -ex "file $1" -ex "target remote localhost:1234" -ex "break _start" "${@:2}";
+}
+
+function arm_cpsr {
+    python3 "$SCRIPT_DIR"/__pyscripts/cpsr.py "$1"
 }
