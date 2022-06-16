@@ -73,7 +73,7 @@ function darm {
     gdb-multiarch -q --nh -ex "set architecture arm" -ex "set sysroot /usr/arm-linux-gnueabi" -ex "file $1" -ex "target remote localhost:1234" -ex "break _start";
 }
 
-function darm {
+function darm_args {
     if [[ ! -f "$1" ]]; then
         echo "File does not exist!"
         return 0
