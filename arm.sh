@@ -21,7 +21,7 @@ function rarm {
         return 0
     fi
 
-	qemu-arm -L /usr/arm-linux-gnueabi -cpu cortex-m7 "$1"
+	qemu-arm -L /usr/arm-linux-gnueabi "$1"
 }
 
 function bearm {
