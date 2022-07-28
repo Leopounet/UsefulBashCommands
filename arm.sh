@@ -1,6 +1,6 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
 
-function carm {
+function cthumb {
     if [[ -z "$1" ]]; then
         echo "No first input given!"
         return 0
@@ -13,6 +13,30 @@ function carm {
 
 	arm-linux-gnueabi-as -march=armv7-m -o __o.o "$1"
 	arm-linux-gnueabi-ld -o "$2" __o.o
+}
+
+function carm {
+    if [[ -z "$1" ]]; then
+        echo "No first input given!"
+        return 0
+    fi
+
+    if [[ -z "$2" ]]; then
+        echo "No second input given!"
+        return 0
+    fi
+
+	arm-linux-gnueabi-as -o __o.o "$1"
+	arm-linux-gnueabi-ld -o "$2" __o.o
+}
+
+function rthumb {
+    if [[ -z "$1" ]]; then
+        echo "No input given!"
+        return 0
+    fi
+
+	qemu-arm -L /usr/arm-linux-gnueabi "$1"
 }
 
 function rarm {
