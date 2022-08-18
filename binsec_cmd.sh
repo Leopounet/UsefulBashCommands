@@ -3,5 +3,5 @@ function bindba {
 }
 
 function binrun {
-    binsec -isa arm32 -arm-supported-modes thumb -sse -sse-load-sections -sse-load-ro-sections -sse-script $1 $2
+    binsec -isa arm32 -arm-supported-modes thumb -sse -sse-depth 1000000 -sse-script $1 $2
 }
