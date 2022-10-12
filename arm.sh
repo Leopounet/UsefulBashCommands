@@ -246,3 +246,28 @@ function becmarm {
     echo -e "add_custom_target(build COMMAND arm-linux-gnueabi-gcc -mthumb -mcpu=cortex-m3 -march=armv7-m -nostdlib -o main \${C_FILES}" >> "CMakeLists.txt"
     echo -e "\t\t\t\t\t\tCOMMAND bash -c \"arm-linux-gnueabi-objdump -lSd main >> main.s\")" >> "CMakeLists.txt"
 }
+
+function cbex {
+    SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+    path=$(realpath "$1")
+    cp -r "$SCRIPT_DIR/__c_arm_dir/"* "$path"
+}
+
+function mkcbex {
+    if [[ -f "$1" ]]; then
+        echo "File already exists!"
+        return 0
+    fi
+
+    if [[ -z "$1" ]]; then
+        echo "No input given!"
+        return 0
+    fi
+
+    path=$(realpath "$1")
+    mkdir "$1"
+
+    SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+    cp -r "$SCRIPT_DIR/__c_arm_dir/"* "$path/"
+}
