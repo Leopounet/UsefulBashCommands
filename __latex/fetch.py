@@ -33,12 +33,12 @@ sum_file = "summaries.tex"
 spl_file = "speciallabel.tex"
 
 exclude_files = {
-    "user_defined.tex",
     "bib.tex",
     "packages.tex",
     sum_file,
     spl_file,
-    "ref.bib"
+    "ref.bib",
+    "macro.tex"
 }
 
 tex_files = set(glob.glob("*.tex"))
