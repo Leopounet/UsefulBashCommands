@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+# Exec=gnome-terminal -- nohup /home/leop/.auto-vpn.sh nl & sleep 5 && gnome-terminal -- echo "Henlo" && sleep 5 &
+#Exec=gnome-terminal -- nohup /home/leop/.auto-vpn.sh nl & sleep 10; gnome-terminal -- pkill gnome-terminal
+Exec=gnome-terminal -- sh -c "nohup /home/leop/.auto-vpn.sh nl & sleep 1; pkill gnome-terminal"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_NG]=Terminal
+Name=Terminal
+Comment[en_NG]=Start Terminal On Startup
+Comment=Start Terminal On Startup
