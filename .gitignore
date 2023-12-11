@@ -16,3 +16,4 @@ _build/
 *.mll
 *.mlo
 build_py_tex/
+yuzu.sh
