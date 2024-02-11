@@ -18,6 +18,15 @@ all:
 	@echo "uninstall: \tbuildremoves the package from the system"
 
 build:
+	mypy imaplaceholder
+	rm -rf build/
+	rm -rf dist/
+	rm -rf imaplaceholder.egg-info/
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel
+	python3 setup.py build
+
+ubuild:
 	rm -rf build/
 	rm -rf dist/
 	rm -rf imaplaceholder.egg-info/
@@ -30,6 +39,9 @@ install:
 
 uninstall:
 	pip uninstall imaplaceholder
+
+typecheck:
+	mypy imaplaceholder
 
 docs:
 	rm -rf docs/
