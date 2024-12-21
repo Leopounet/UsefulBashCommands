@@ -1,0 +1,67 @@
+\renewcommand\theFancyVerbLine{\large\arabic{FancyVerbLine}}
+
+\newcommand{\vb}{\lstinline}
+
+\newcommand{\htrip}[3]{\{#1\} #2 \{#3\}}
+
+\definecolor{darky}{RGB}{181,158,14}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\newcommand{\redv}[1]{\texttt{\color{red}{#1}}}
+\newcommand{\bluev}[1]{\texttt{\color{blue}{#1}}}
+\newcommand{\greenv}[1]{\texttt{\color{green}{#1}}}
+\newcommand{\borgv}[1]{\texttt{\color{RedOrange}{#1}}}
+\newcommand{\fucv}[1]{\texttt{\color{Fuchsia}{#1}}}
+\newcommand{\pinv}[1]{\texttt{\color{OliveGreen}{#1}}}
+\newcommand{\orch}[1]{\texttt{\color{darky}{#1}}}
+
+\newcommand{\lrangle}[1]{\langle \text{#1} \rangle}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\newtheorem{definition}{Définition}
+\newtheorem{theorem}{Théorème}
+
+\newcommand{\II}[1]{invariant#1 inductif#1}
+
+\newcommand{\sem}[1]{\llbracket #1 \rrbracket}
+
+\newcommand{\speciallabel}[1]{}
+
+\newcommand{\trlab}[3]{#1 \xrightarrow{#2} #3}
+\newcommand{\strlab}[2]{\xrightarrow{#1} #2}
+
+\makeatletter
+
+\newcommand{\ltrlab}[1]{#1 \@ltrlabi}
+
+\newcommand\@ltrlabi{\@ifnextchar\stopltrlab{\@ltrlabend}{\@ltrlabii}}
+
+\newcommand\@ltrlabii[2]{\xrightarrow{#1} #2 \@ltrlabi}
+
+\newcommand\@ltrlabend[1]{}
+
+\makeatother
+
+\newcommand{\defaut}{Soit un automate A = (S, Act, $\to$, I, AP, L)}
+
+\newcommand{\galcon}{(C, \leq) \galois{\alpha}{\gamma} (A, \sqsubseteq)}
+\newcommand{\galemb}{(C, \leq) \galoiS{\alpha}{\gamma} (A, \sqsubseteq)}
+
+\lstset{
+  literate={à}{{\`a}}1 {â}{{\^a}}1 {é}{{\'e}}1 {è}{{\`e}}1,
+}
+
+\newcommand{\mathscr}{\EuScript} % Compatibility wrapper (unicode-math -> euscript)

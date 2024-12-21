@@ -2,6 +2,19 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && 
 
 # ARM CODE RELATED
 
+function libgccarm {
+	if [[ -z "$1" ]]; then
+        	echo "No first input given!"
+        	return 0
+    	fi
+
+    	if [[ -z "$2" ]]; then
+       		echo "No second input given!"
+        	return 0
+    	fi
+	arm-linux-gnueabi-gcc -mthumb -mcpu=cortex-m3 -march=armv7-m -static -I/usr/local/arm-none-eabi/include -L/usr/local/arm-none-eabi/lib/thumb/v7e-m+fp/softfp -o $@
+}
+
 function cthumb {
     if [[ -z "$1" ]]; then
         echo "No first input given!"

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-function cvpn {
 # Replace 'your_password' with your actual password, and '<my_username>' with the desired username.
 my_username="decastrotheo9600@gmail.com"
 
@@ -13,9 +12,4 @@ expect eof
 EOF
 
 protonvpn-cli disconnect
-python3 ~/Desktop/Personnal/UsefulBashCommands/__vpn/main.py $1
-}
-
-function dvpn {
-    protonvpn-cli disconnect
-}
+python3 ~/Desktop/UsefulBashCommands/__vpn/main.py $1

@@ -1,0 +1,90 @@
+\lstdefinestyle{ASM}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{add, sub, jmp, mov, ldr, cmp, jne, je, str, halt},
+    keywordstyle=[1]\color{blue},
+    moredelim=[is][\color{DarkOrange}]{!*}{*!},
+    moredelim=[is][\color{DarkRed}]{!e}{e!},
+    keywords=[2]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp},
+    keywordstyle=[2]\color{DarkRed}
+}
+
+\lstdefinestyle{ARM}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{@},
+    keywords=[1]{add, sub, jmp, mov, ldr, cmp, jne, je, str, halt, svc},
+    keywordstyle=[1]\color{PaleYellow},
+    moredelim=[is][\color{PaleGreen}]{!*}{*!},
+    moredelim=[is][\color{DarkPurple}]{!dp}{pd!},
+    moredelim=[is][\color{SkyBlue}]{!sb}{bs!},
+    moredelim=[s][\color{DarkOrange}]{"}{"},
+    keywords=[2]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp},
+    keywordstyle=[2]\color{blue}
+}
+
+\lstdefinestyle{JUMP}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp, Z},
+    keywordstyle=[1]\color{DarkRed},
+    moredelim=[is][\color{DarkRed}]{!e}{e!},
+    moredelim=[is][\color{DarkOrange}]{!*}{*!},
+    numbers=none,
+    keywords=[2]{jump, :=},
+    keywordstyle=[2]\color{blue}
+}
+
+\lstdefinestyle{VEX}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{GET, WrTmp, LDIe, PUT, Sub32, Add32, STIe, ITE, if, then},
+    keywordstyle=[1]\color{blue},
+    moredelim=[is][\color{DarkOrange}]{!*}{*!},
+    moredelim=[is][\color{DarkRed}]{!e}{e!},
+    keywords=[2]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp},
+    keywordstyle=[2]\color{DarkRed},
+    numbers=none,
+    keywords=[3]{I32, cc\_op, cc\_dep1, cc\_dep2, compute_flags, skip, goto},
+    keywordstyle=[3]\color{DarkPurple}
+}
+
+\lstdefinestyle{PCODE}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{if, goto},
+    keywordstyle=[1]\color{blue},
+    moredelim=[is][\color{DarkOrange}]{!*}{*!},
+    moredelim=[is][\color{DarkRed}]{!e}{e!},
+    keywords=[2]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp},
+    keywordstyle=[2]\color{DarkRed},
+    numbers=none,
+}
+
+\lstdefinestyle{DBA}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{if, goto, else, stop},
+    keywordstyle=[1]\color{blue},
+    moredelim=[is][\color{DarkOrange}]{!*}{*!},
+    moredelim=[is][\color{DarkRed}]{!e}{e!},
+    keywords=[2]{r0, r1, r2, r3, r4, r5, r6, r7, pc, fp, sp, ok},
+    keywordstyle=[2]\color{DarkRed},
+    numbers=none,
+}
+
+\lstdefinestyle{GFS}{
+    backgroundcolor=\color{LightGray},
+    commentstyle=\color{DarkGreen},
+    morecomment=[l]{;},
+    keywords=[1]{::=, |},
+    alsoletter={<>=-+:|},
+    keywordstyle=[1]\color{DarkPurple},
+    moredelim=[s][\color{blue}]{<}{>},
+    numbers=none,
+}
